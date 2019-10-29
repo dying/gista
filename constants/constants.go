@@ -1,6 +1,6 @@
 package constants
 
-// Internals
+œœ// Internals
 const MSISDN string = "accounts/read_msisdn_header/"
 const Sync string = "qe/sync/"
 const LauncherSync string = "launcher/sync/"
