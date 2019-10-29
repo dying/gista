@@ -168,7 +168,18 @@ func (a *account) SwitchToBusinessProfile() (r *responses.UserInfo, err error) {
 	return
 }
 
-func (a *account) CheckUsername(username string, proxy string) (r *responses.CheckUsername, err error) {
+func (a *account) CheckUsername(username string) (r *responses.CheckUsername, err error) {
+	r = &responses.CheckUsername{}
+	err = a.ig.client.Request(constants.CheckUsername).
+		AddUIdPost().
+		AddUuIdPost().
+		AddCSRFPost().
+		AddPost("username", username).
+		GetResponse(r)
+	return
+}
+
+func (a *account) CheckUsernameProxy(username string, proxy string) (r *responses.CheckUsername, err error) {
 	r = &responses.CheckUsername{}
 	err = a.ig.client.Request(constants.CheckUsername).
 		AddUIdPost().
@@ -206,7 +217,34 @@ func (a *account) SetBiography(biography string) (r *responses.UserInfo, err err
 	return
 }
 
-func (a *account) EditProfile(url, phone, name, biography, email, gender, proxy string, newUsername *string) (r *responses.UserInfo, err error) {
+func (a *account) EditProfile(url, phone, name, biography, email, gender string, newUsername *string) (r *responses.UserInfo, err error) {
+	var currentUser *responses.UserInfo
+	currentUser, err = a.GetCurrentUser()
+	if err != nil {
+		return
+	}
+	username := currentUser.User.Username
+	if newUsername != nil && len(*newUsername) > 0 {
+		username = *newUsername
+	}
+	r = &responses.UserInfo{}
+	err = a.ig.client.Request(constants.EditProfile).
+		AddPost("external_url", url).
+		AddPost("phone_number", phone).
+		AddPost("username", username).
+		AddPost("first_name", name).
+		AddPost("biography", biography).
+		AddPost("email", email).
+		AddPost("gender", gender).
+		AddUuIdPost().
+		AddUIdPost().
+		AddDeviceIdPost().
+		AddCSRFPost().
+		GetResponse(r)
+	return
+}
+
+func (a *account) EditProfileProxy(url, phone, name, biography, email, gender, proxy string, newUsername *string) (r *responses.UserInfo, err error) {
 	var currentUser *responses.UserInfo
 	currentUser, err = a.GetCurrentUser()
 	if err != nil {

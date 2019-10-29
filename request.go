@@ -377,6 +377,8 @@ func (r *request) buildHttpRequest() (req *http.Request, err error) {
 		method = "POST"
 	}
 	req, err = http.NewRequest(method, endPoint, postData)
+	req.Close = true
+
 	if err != nil {
 		err = errs.ErrorBuildingHTTPRequest(err.Error())
 	}
@@ -417,6 +419,8 @@ func (r *request) getHTTPResponse() (resp *http.Response, err error) {
 			}
 		}*/
 		r.httpResponse, err = r.parent.api(req)
+		req.Close = true
+		defer req.Body.Close()
 		if err != nil {
 			err = errs.ErrorGettingHTTPResponse(err.Error())
 			return
