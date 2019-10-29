@@ -8,7 +8,7 @@ import (
 	"regexp"
 	"strings"
 
-	"github.com/aliforever/gista/errs"
+	"github.com/dying/gista/errs"
 )
 
 func (f *File) createFolder(folderPath string) error {

@@ -1,9 +1,9 @@
 package factory
 
 import (
-	"github.com/aliforever/gista/errs"
-	storage_handler "github.com/aliforever/gista/settings/storage-handler"
-	storage_file "github.com/aliforever/gista/settings/storage/storage-file"
+	"github.com/dying/gista/errs"
+	storage_handler "github.com/dying/gista/settings/storage-handler"
+	storage_file "github.com/dying/gista/settings/storage/storage-file"
 )
 
 type Factory struct {

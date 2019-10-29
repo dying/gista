@@ -14,13 +14,13 @@ import (
 	"path/filepath"
 	"strings"
 
-	"github.com/aliforever/gista/errs"
+	"github.com/dying/gista/errs"
 
-	"github.com/aliforever/gista/responses"
+	"github.com/dying/gista/responses"
 
-	"github.com/aliforever/gista/constants"
-	"github.com/aliforever/gista/signatures"
-	"github.com/aliforever/gista/utils"
+	"github.com/dying/gista/constants"
+	"github.com/dying/gista/signatures"
+	"github.com/dying/gista/utils"
 	"github.com/kr/pretty"
 )
 

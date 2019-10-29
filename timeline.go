@@ -5,9 +5,9 @@ import (
 	"strings"
 	"time"
 
-	"github.com/aliforever/gista/constants"
-	"github.com/aliforever/gista/responses"
-	"github.com/aliforever/gista/utils"
+	"github.com/dying/gista/constants"
+	"github.com/dying/gista/responses"
+	"github.com/dying/gista/utils"
 )
 
 type timeline struct {

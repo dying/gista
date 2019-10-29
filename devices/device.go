@@ -4,11 +4,11 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/aliforever/gista/errs"
+	"github.com/dying/gista/errs"
 
 	"github.com/mcuadros/go-version"
 
-	good_devices "github.com/aliforever/gista/devices/good-devices"
+	good_devices "github.com/dying/gista/devices/good-devices"
 )
 
 const requiredAndroidVersion = "2.2"

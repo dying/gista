@@ -3,7 +3,7 @@ package devices
 import (
 	"fmt"
 
-	"github.com/aliforever/gista/constants"
+	"github.com/dying/gista/constants"
 )
 
 const userAgentFormat string = "Instagram %s Android (%s/%s; %s; %s; %s; %s; %s; %s; %s; %s)"

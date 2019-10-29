@@ -3,8 +3,8 @@ package media_photo
 import (
 	"fmt"
 
-	"github.com/aliforever/gista/media"
-	"github.com/aliforever/gista/utils"
+	"github.com/dying/gista/media"
+	"github.com/dying/gista/utils"
 	"github.com/go-errors/errors"
 )
 

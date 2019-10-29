@@ -7,11 +7,11 @@ import (
 	"net/url"
 	"time"
 
-	"github.com/aliforever/gista/errs"
+	"github.com/dying/gista/errs"
 
-	"github.com/aliforever/gista/middleware"
+	"github.com/dying/gista/middleware"
 
-	"github.com/aliforever/gista/constants"
+	"github.com/dying/gista/constants"
 )
 
 const cookieAutoSaveInterval int64 = 45

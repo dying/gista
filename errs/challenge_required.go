@@ -1,8 +1,8 @@
 package errs
 
 import (
-	"github.com/aliforever/gista/models"
-	"github.com/aliforever/gista/responses"
+	"github.com/dying/gista/models"
+	"github.com/dying/gista/responses"
 )
 
 type ChallengeRequired struct {

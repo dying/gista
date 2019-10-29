@@ -7,7 +7,7 @@ import (
 
 	"github.com/huandu/xstrings"
 
-	zero_rating "github.com/aliforever/gista/middleware/zero-rating"
+	zero_rating "github.com/dying/gista/middleware/zero-rating"
 )
 
 type ZeroRating struct {

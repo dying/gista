@@ -1,10 +1,10 @@
 package metadata
 
 import (
-	media_constraints "github.com/aliforever/gista/media/media-constraints"
-	media_photo "github.com/aliforever/gista/media/media-photo"
-	"github.com/aliforever/gista/responses"
-	"github.com/aliforever/gista/utils"
+	media_constraints "github.com/dying/gista/media/media-constraints"
+	media_photo "github.com/dying/gista/media/media-photo"
+	"github.com/dying/gista/responses"
+	"github.com/dying/gista/utils"
 )
 
 type Internal struct {

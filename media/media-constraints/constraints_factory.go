@@ -1,8 +1,8 @@
 package media_constraints
 
 import (
-	"github.com/aliforever/gista/constants"
-	"github.com/aliforever/gista/media"
+	"github.com/dying/gista/constants"
+	"github.com/dying/gista/media"
 )
 
 type ConstraintsFactory struct {

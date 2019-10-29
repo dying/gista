@@ -6,18 +6,18 @@ import (
 	"strconv"
 	"time"
 
-	"github.com/aliforever/gista/errs"
+	"github.com/dying/gista/errs"
 
-	"github.com/aliforever/gista/settings/factory"
+	"github.com/dying/gista/settings/factory"
 
-	"github.com/aliforever/gista/utils"
+	"github.com/dying/gista/utils"
 
-	"github.com/aliforever/gista/responses"
+	"github.com/dying/gista/responses"
 
-	"github.com/aliforever/gista/constants"
-	"github.com/aliforever/gista/devices"
-	storage_handler "github.com/aliforever/gista/settings/storage-handler"
-	"github.com/aliforever/gista/signatures"
+	"github.com/dying/gista/constants"
+	"github.com/dying/gista/devices"
+	storage_handler "github.com/dying/gista/settings/storage-handler"
+	"github.com/dying/gista/signatures"
 )
 
 const experimentsRefresh int = 7200

@@ -1,7 +1,7 @@
 package errs
 
 import (
-	"github.com/aliforever/gista/responses"
+	"github.com/dying/gista/responses"
 )
 
 type GistaError struct {

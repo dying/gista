@@ -6,15 +6,15 @@ import (
 	"os"
 	"path"
 
-	errs2 "github.com/aliforever/gista/errs"
+	errs2 "github.com/dying/gista/errs"
 
-	"github.com/aliforever/gista/utils"
+	"github.com/dying/gista/utils"
 
-	"github.com/aliforever/gista/constants"
+	"github.com/dying/gista/constants"
 
-	"github.com/aliforever/gista/models/item"
+	"github.com/dying/gista/models/item"
 
-	"github.com/aliforever/gista/models"
+	"github.com/dying/gista/models"
 )
 
 func ShortCodeToMediaId(shortCode string) int64 {

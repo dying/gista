@@ -1,8 +1,8 @@
 package gista
 
 import (
-	"github.com/aliforever/gista/constants"
-	"github.com/aliforever/gista/responses"
+	"github.com/dying/gista/constants"
+	"github.com/dying/gista/responses"
 )
 
 type direct struct {

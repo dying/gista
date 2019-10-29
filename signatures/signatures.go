@@ -12,9 +12,9 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/aliforever/gista/utils"
+	"github.com/dying/gista/utils"
 
-	"github.com/aliforever/gista/constants"
+	"github.com/dying/gista/constants"
 )
 
 func GenerateSignature(data string) string {

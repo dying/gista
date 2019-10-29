@@ -6,7 +6,7 @@ import (
 	"regexp"
 	"strings"
 
-	"github.com/aliforever/gista/responses"
+	"github.com/dying/gista/responses"
 )
 
 var exceptionMap = map[string][]string{

@@ -6,11 +6,11 @@ import (
 	"os"
 	"strconv"
 
-	"github.com/aliforever/gista/errs"
+	"github.com/dying/gista/errs"
 
 	"github.com/natefinch/atomic"
 
-	storage_handler "github.com/aliforever/gista/settings/storage-handler"
+	storage_handler "github.com/dying/gista/settings/storage-handler"
 
 	"strings"
 )

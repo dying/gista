@@ -8,22 +8,22 @@ import (
 	"path"
 	"time"
 
-	media2 "github.com/aliforever/gista/media"
+	media2 "github.com/dying/gista/media"
 
-	"github.com/aliforever/gista/models/item"
+	"github.com/dying/gista/models/item"
 
-	"github.com/aliforever/gista/utils"
+	"github.com/dying/gista/utils"
 
-	"github.com/aliforever/gista/metadata"
+	"github.com/dying/gista/metadata"
 
 	"github.com/go-errors/errors"
 
-	"github.com/aliforever/gista/signatures"
+	"github.com/dying/gista/signatures"
 
-	"github.com/aliforever/gista/models"
+	"github.com/dying/gista/models"
 
-	"github.com/aliforever/gista/constants"
-	"github.com/aliforever/gista/responses"
+	"github.com/dying/gista/constants"
+	"github.com/dying/gista/responses"
 )
 
 const (
