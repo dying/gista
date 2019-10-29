@@ -15,6 +15,7 @@ import (
 	"io"
 	"io/ioutil"
 	"math"
+	"math/bits"
 	"math/rand"
 	"os"
 	"path/filepath"
@@ -78,15 +79,19 @@ func GenerateUploadId(useNano bool) (result string) {
 	return
 }
 
-func HashCode(data string) int {
-	result := 0
+func HashCode(data string) uint64 {
+	var result uint64 = 0
 	for _, v := range data {
 		//$result = (-$result + ($result << 5) + ord($string[$i])) & 0xFFFFFFFF;
-		result = (-result + result<<5) + int(v)&0xFFFFFFFF
+
+		_, addition := bits.Add64((-result + result<<5), uint64(v), 0)
+		result = addition & 0xFFFFFFFF
 	}
+
+	var negative int64 = -0x80000000
 	if result > 0x7FFFFFFF {
 		result -= 0x100000000
-	} else if result < -0x80000000 {
+	} else if int64(result) < negative {
 		result += 0x100000000
 	}
 	return result

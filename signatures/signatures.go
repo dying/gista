@@ -7,6 +7,7 @@ import (
 	"encoding/hex"
 	"encoding/json"
 	"fmt"
+	"math/bits"
 	"net/url"
 	"regexp"
 	"strconv"
@@ -85,16 +86,16 @@ func GenerateUUID(keepDashes bool) string {
 	return uuId
 }
 
-func HashCode(str string) (code int) {
-	code = 0
+func HashCode(str string) (code uint64) {
 	runes := []rune(str)
 	for _, k := range runes {
-		code = (-code + (code << 5) + int(k)) & 0xFFFFFFFF
+		_, addition := bits.Add64((code + (code << 5)), uint64(k), 0)
+		code = addition & 0xFFFFFFFF
 	}
 	if strconv.IntSize > 4 {
 		if code > 0x7FFFFFFF {
 			code -= 0x100000000
-		} else if code < -0x80000000 {
+		} else if int64(code) < -0x80000000 {
 			code += 0x100000000
 		}
 	}
