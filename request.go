@@ -420,7 +420,6 @@ func (r *request) getHTTPResponse() (resp *http.Response, err error) {
 		}*/
 		r.httpResponse, err = r.parent.api(req)
 		req.Close = true
-		defer req.Body.Close()
 		if err != nil {
 			err = errs.ErrorGettingHTTPResponse(err.Error())
 			return
