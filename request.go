@@ -104,6 +104,17 @@ func (r *request) AddCSRFPost() *request {
 	return r
 }
 
+func (r *request) AddProxyPost(proxyStr string) *request {
+	proxyURL, err := url.Parse(proxyStr)
+	if err != nil {
+		panic(err)
+	}
+	http.DefaultTransport = &http.Transport{
+		Proxy: http.ProxyURL(proxyURL),
+	}
+	return r
+}
+
 func (r *request) AddPhoneIdPost() *request {
 	r.posts["phone_id"] = r.parent.instagram.phoneId
 	return r
