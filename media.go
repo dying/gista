@@ -102,20 +102,19 @@ func (m *media) Comment(mediaId interface{}, commentText string, replyCommentId 
 
 func (m *media) ReportMediaSpam(mediaId interface{}) (res *responses.Generic, err error) {
 	res = &responses.Generic{}
-	mediaIdStr := ""
+	mediaIdInt := int64(0)
 	switch mediaId.(type) {
 	case int64:
-		mediaIdStr = fmt.Sprintf("%d", mediaId.(int64))
-	case int:
-		mediaIdStr = fmt.Sprintf("%d", mediaId.(int))
+		mediaIdInt = mediaId.(int64)
 	case string:
-		mediaIdStr = mediaId.(string)
+		idTemp, _ := strconv.Atoi(mediaId.(string)[:strings.Index(mediaId.(string), "_")])
+		mediaIdInt = int64(idTemp)
 	}
 
-	m.ig.client.Request(fmt.Sprintf(constants.ReportMedia, mediaIdStr)).
+	m.ig.client.Request(fmt.Sprintf(constants.ReportMedia, mediaIdInt)).
 		AddPost("source_name", "feed_contextual_chain").
 		AddPost("reason_id", "1").
-		AddPost("media_id", mediaIdStr).
+		AddPost("media_id", mediaIdInt).
 		AddUuIdPost().
 		AddUIdPost().
 		AddCSRFPost().
