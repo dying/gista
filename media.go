@@ -100,6 +100,29 @@ func (m *media) Comment(mediaId interface{}, commentText string, replyCommentId 
 	return
 }
 
+func (m *media) ReportMediaSpam(mediaId interface{}) (res *responses.Generic, err error) {
+	res = &responses.Generic{}
+	mediaIdStr := ""
+	switch mediaId.(type) {
+	case int64:
+		mediaIdStr = fmt.Sprintf("%d", mediaId.(int64))
+	case int:
+		mediaIdStr = fmt.Sprintf("%d", mediaId.(int))
+	case string:
+		mediaIdStr = mediaId.(string)
+	}
+
+	m.ig.client.Request(fmt.Sprintf(constants.ReportMedia, mediaIdStr)).
+		AddPost("source_name", "feed_contextual_chain").
+		AddPost("reason_id", "1").
+		AddPost("media_id", mediaIdStr).
+		AddUuIdPost().
+		AddUIdPost().
+		AddCSRFPost().
+		AddDeviceIdPost().GetResponse(res)
+	return
+}
+
 func (m *media) GetComments(mediaId interface{}, options map[string]string) (res *responses.MediaComment, err error) {
 	res = &responses.MediaComment{}
 	mediaIdInt := int64(0)

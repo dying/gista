@@ -99,6 +99,7 @@ const GetMediaInfo string = "media/%s/info/"
 const CommentMedia string = "media/%s/comment/"
 const CommentLike string = "media/%d/comment_like/"
 const GetComments string = "media/%d/comments/"
+const ReportMedia string = "media/%d/flag_media/"
 
 // Highlight
 const GetHighlightsUserFeed string = "highlights/%d/highlights_tray/"
