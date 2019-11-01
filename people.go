@@ -106,6 +106,19 @@ func (p *people) Follow(userId int64) (res *responses.Friendship, err error) {
 	return
 }
 
+
+func (p *people) ApproveFriendship(userId int64) (res *responses.Friendship, err error) {
+	res = &responses.Friendship{}
+	err = p.ig.client.Request(fmt.Sprintf(constants.ApproveFriendship, userId)).
+		AddUuIdPost().
+		AddUIdPost().
+		AddCSRFPost().
+		AddPost("user_id", userId).
+		AddPost("radio_type", "wifi-none").
+		AddDeviceIdPost().GetResponse(res)
+	return
+}
+
 func (p *people) GetFollowers(userId int64, rankToken string, maxId *string) (res *responses.FollowerAndFollowing, err error) {
 	res = &responses.FollowerAndFollowing{}
 	/*	if !signatures.IsValidUUID(rankToken) {
@@ -125,6 +138,18 @@ func (p *people) SearchFollowers(userId int64, rankToken string, searchQuery str
 	res = &responses.SearchFollowerAndFollowing{}
 	/*	if !signatures.IsValidUUID(rankToken) {
 		err = errors.New(rankToken + " is not a valid rank token")
+		return
+	}*/
+	req := p.ig.client.Request(fmt.Sprintf(constants.Followers, userId)).
+		AddParam("rank_token", rankToken)
+	if searchQuery == "" {
+		err = errors.New("empty search query")
+	}
+	req.AddParam("query", searchQuery)
+
+	err = req.GetResponse(res)
+	return
+}
 		return
 	}*/
 	req := p.ig.client.Request(fmt.Sprintf(constants.Followers, userId)).
