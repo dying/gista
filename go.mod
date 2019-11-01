@@ -10,5 +10,7 @@ require (
 	github.com/mcuadros/go-version v0.0.0-20190830083331-035f6764e8d2
 	github.com/natefinch/atomic v0.0.0-20150920032501-a62ce929ffcc
 	github.com/rwcarlsen/goexif v0.0.0-20190401172101-9e8deecbddbd
+	github.com/tcnksm/go-input v0.0.0-20180404061846-548a7d7a8ee8 // indirect
 	golang.org/x/image v0.0.0-20191009234506-e7c1f5e7dbb8
+	gopkg.in/yaml.v2 v2.2.4 // indirect
 )

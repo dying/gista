@@ -90,6 +90,8 @@ const BootstrapUsers string = "scores/bootstrap/users/"
 const GetInfoById string = "users/%d/info/"
 const GetInfoByUsername string = "users/%s/usernameinfo/"
 const GetFriendship string = "friendships/show/%d/"
+const GetFriendshipPending = "friendships/pending/"
+const ApproveFriendship = "friendships/approve/%d/"
 const FollowUser string = "friendships/create/%d/"
 const Followers string = "friendships/%d/followers/"
 

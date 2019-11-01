@@ -168,6 +168,16 @@ func (a *account) SwitchToBusinessProfile() (r *responses.UserInfo, err error) {
 	return
 }
 
+func (a *account) GetPendingFollowRequests() (r *responses.PendingFollowRequests, err error) {
+	r = &responses.PendingFollowRequests{}
+	err = a.ig.client.Request(constants.GetFriendshipPending).
+		AddUuIdPost().
+		AddUIdPost().
+		AddCSRFPost().
+		GetResponse(r)
+	return
+}
+
 func (a *account) CheckUsername(username string) (r *responses.CheckUsername, err error) {
 	r = &responses.CheckUsername{}
 	err = a.ig.client.Request(constants.CheckUsername).
