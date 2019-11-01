@@ -150,15 +150,3 @@ func (p *people) SearchFollowers(userId int64, rankToken string, searchQuery str
 	err = req.GetResponse(res)
 	return
 }
-		return
-	}*/
-	req := p.ig.client.Request(fmt.Sprintf(constants.Followers, userId)).
-		AddParam("rank_token", rankToken)
-	if searchQuery == "" {
-		err = errors.New("empty search query")
-	}
-	req.AddParam("query", searchQuery)
-
-	err = req.GetResponse(res)
-	return
-}
