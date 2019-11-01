@@ -106,7 +106,6 @@ func (p *people) Follow(userId int64) (res *responses.Friendship, err error) {
 	return
 }
 
-
 func (p *people) ApproveFriendship(userId int64) (res *responses.Friendship, err error) {
 	res = &responses.Friendship{}
 	err = p.ig.client.Request(fmt.Sprintf(constants.ApproveFriendship, userId)).
